@@ -1,0 +1,22 @@
+{
+  "name": "apidashboard-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env-cmd -f ./.env nodemon --max-old-space-size=409600  ./src/server.js",
+    "start": "env-cmd -f ./.env node --max-old-space-size=409600  ./src/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.19.2",
+    "glob": "^10.4.3",
+    "mongoose": "^8.4.4",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
