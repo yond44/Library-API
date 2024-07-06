@@ -20,6 +20,16 @@ app.use(
     extended: true,
   })
 );
+
+const membersRoute = require("./app/Members/route.js");
+const booksRoute = require("./app/Books/route.js");
+const borrowAndReturnRoute = require("./app/BorrowAndReturn/route.js");
+
+app.use("/", membersRoute);
+app.use("/", booksRoute);
+app.use("/", borrowAndReturnRoute);
+
+// Swagger route
 app.use(express.static(path.join(__dirname, "public")));
 
 const options = {
@@ -36,21 +46,12 @@ const options = {
       },
     ],
   },
-  apis: ["./app/**/*.js"], // Dynamic path generation
+  apis: ["src/app/**/*.js"], // Dynamic path generation
 };
 
 const specs = swaggerjsdoc(options);
 app.use("/", swaggerui.serve, swaggerui.setup(specs));
 //express Route
-const membersRoute = require("./app/Members/route.js");
-const booksRoute = require("./app/Books/route.js");
-const borrowAndReturnRoute = require("./app/BorrowAndReturn/route.js");
-
-app.use("/", membersRoute);
-app.use("/", booksRoute);
-app.use("/", borrowAndReturnRoute);
-
-// Swagger route
 
 app.listen(port, () => {
   console.log(`Server started at ${port}`);

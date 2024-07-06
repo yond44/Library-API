@@ -27,6 +27,30 @@
  *           description: The stock of the book
  */
 
+/**
+ * @swagger
+ * tags:
+ *   name: Books
+ *   description: API endpoints for managing books
+ */
+/**
+ * @swagger
+ * /books:
+ *   get:
+ *     summary: Returns a list of all available books
+ *     tags: [Books]
+ *     responses:
+ *       200:
+ *         description: The list of books
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Book'
+ *       500:
+ *         description: Some server error
+ */
 const express = require("express");
 const router = express.Router();
 const { getBooks } = require("./controller");
